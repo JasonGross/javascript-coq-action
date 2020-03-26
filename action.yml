@@ -1,13 +1,16 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Setup Coq'
+description: 'Set up an OCaml and opam and Coq environment and add to PATH'
+author: 'Jason Gross'
+branding:
+  icon: 'package'
+  color: 'tan'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  ocaml-version:
+    description: Version of the OCaml compiler to initialise
+    default: 4.09.0+flambda
+  coq-version:
+    description: Version of the Coq compiler to initialise
+    default: latest
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'index.js'
